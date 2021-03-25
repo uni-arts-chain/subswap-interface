@@ -9,6 +9,7 @@ import styled, {
 import { useIsDarkMode } from '../state/user/hooks'
 import { Text, TextProps } from 'rebass'
 import { Colors } from './styled'
+import Bg from '../assets/images/bg.png'
 
 export * from './components'
 
@@ -50,7 +51,7 @@ export function colors(darkMode: boolean): Colors {
     // backgrounds / greys
     bg1: darkMode ? '#212429' : '#FFFFFF',
     bg2: darkMode ? '#2C2F36' : '#F7F8FA',
-    bg3: darkMode ? '#40444F' : '#EDEEF2',
+    bg3: darkMode ? '#40444F' : '#EFF2F8',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#565A69' : '#888D9B',
 
@@ -60,19 +61,19 @@ export function colors(darkMode: boolean): Colors {
 
     //primary colors
     // primary1: darkMode ? '#2172E5' : '#ffcb5a',
-    primary1: darkMode ? '#2172E5' : '#7c30dd',
-    primary2: darkMode ? '#3680E7' : '#5BD778',
-    primary3: darkMode ? '#4D8FEA' : '#6FDC89',
-    primary4: darkMode ? '#376bad70' : '#6FDC89',
-    primary5: darkMode ? '#153d6f70' : '#C1F0CC',
+    primary1: darkMode ? '#EB3683' : '#EB3683',
+    primary2: darkMode ? '#bb4277' : '#5BD778',
+    primary3: darkMode ? '#a74d74' : '#671ADB',
+    primary4: darkMode ? '#ed4d9117' : '#671ADB',
+    primary5: darkMode ? '#ed4d9117' : '#671ADB',
 
     // color text
-    primaryText1: darkMode ? '#6da8ff' : '#28A745',
+    primaryText1: darkMode ? '#eb3683c4' : '#ffffff',
 
     // secondary colors
-    secondary1: darkMode ? '#2172E5' : '#28A745',
+    secondary1: darkMode ? '#EB3683' : '#ffffff',
     secondary2: darkMode ? '#17000b26' : '#5BD778',
-    secondary3: darkMode ? '#17000b26' : '#C1F0CC',
+    secondary3: darkMode ? '#17000b26' : '#671ADB',
 
     // other
     red1: '#FF6871',
@@ -98,7 +99,7 @@ export function theme(darkMode: boolean): DefaultTheme {
     },
 
     //shadows
-    shadow1: darkMode ? '#000' : '#2F80ED',
+    shadow1: darkMode ? '#000' : '#EB3683',
 
     // media queries
     mediaWidth: mediaWidthTemplates,
@@ -212,12 +213,10 @@ html {
 
 body {
   min-height: 100vh;
-  background-position: 0 -30vh;
+  /* background-position: 0 -30vh; */
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-image: ${({ theme }) =>
-    `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
-      1,
-      theme.bg1
-    )} 100%)`};
+  background-image: url(${Bg});
 }
 `

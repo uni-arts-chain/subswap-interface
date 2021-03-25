@@ -3,6 +3,7 @@ import { Info, DollarSign, Code, MessageCircle, Twitter } from 'react-feather'
 import styled from 'styled-components'
 import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import useToggle from '../../hooks/useToggle'
+import More from '../../assets/images/more@2x.png'
 
 import { ExternalLink } from '../../theme'
 
@@ -19,7 +20,8 @@ const StyledMenuButton = styled.button`
   background-color: transparent;
   margin: 0;
   padding: 0;
-  height: 35px;
+  width: 38px;
+  height: 38px;
   background-color: ${({ theme }) => theme.bg3};
 
   padding: 0.15rem 0.5rem;
@@ -105,7 +107,8 @@ export default function Menu() {
   return (
     <StyledMenu ref={node}>
       <StyledMenuButton onClick={toggle}>
-        <StyledMenuIcon />
+        {/* <StyledMenuIcon /> */}
+        <img src={More} style={{width: 20, height: 20}} alt="More"/>
       </StyledMenuButton>
       {open && (
         <MenuFlyout>

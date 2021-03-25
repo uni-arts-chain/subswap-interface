@@ -7,6 +7,8 @@ import styled from 'styled-components'
 
 import Logo from '../../assets/svg/logo.png'
 import LogoDark from '../../assets/svg/logo.png'
+import LogoText from '../../assets/images/subswap@2x.png'
+// import LogoTextDark from '../../assets/images/subswapDark@2x.png'
 import { useActiveWeb3React } from '../../hooks'
 import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances } from '../../state/wallet/hooks'
@@ -35,6 +37,19 @@ const HeaderFrame = styled.div`
   `};
 `
 
+const StyledImgIcon = styled.img`
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    display: none;
+  `};
+`
+
+const StyledRowBetween = styled(RowBetween)`
+  padding: 1rem 2rem 0 2rem;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    padding: 1rem 1rem 0 1rem;
+  `}
+`
+
 const HeaderElement = styled.div`
   display: flex;
   align-items: center;
@@ -43,7 +58,7 @@ const HeaderElement = styled.div`
 const HeaderElementWrap = styled.div`
   display: flex;
   align-items: center;
-
+  height: 38px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     margin-top: 0.5rem;
 `};
@@ -131,12 +146,13 @@ export default function Header() {
 
   return (
     <HeaderFrame>
-      <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 1rem 0 1rem">
+      <StyledRowBetween style={{ alignItems: 'flex-start' }}>
         <HeaderElement>
           <Title href="/">
             <UniIcon>
               <img style={{ height: 45 }} src={isDark ? LogoDark : Logo} alt="Subswap" />
             </UniIcon>
+            <StyledImgIcon style={{ height: 30, marginLeft: 19 }} src={LogoText} alt="Subswap" />
           </Title>
         </HeaderElement>
         <Nav />
@@ -159,7 +175,7 @@ export default function Header() {
             <Menu />
           </HeaderElementWrap>
         </HeaderControls>
-      </RowBetween>
+      </StyledRowBetween>
     </HeaderFrame>
   )
 }
