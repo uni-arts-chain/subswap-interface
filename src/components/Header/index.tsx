@@ -37,6 +37,19 @@ const HeaderFrame = styled.div`
   `};
 `
 
+const StyledImgIcon = styled.img`
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    display: none;
+  `};
+`
+
+const StyledRowBetween = styled(RowBetween)`
+  padding: 1rem 2rem 0 2rem;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    padding: 1rem 1rem 0 1rem;
+  `}
+`
+
 const HeaderElement = styled.div`
   display: flex;
   align-items: center;
@@ -133,13 +146,13 @@ export default function Header() {
 
   return (
     <HeaderFrame>
-      <RowBetween style={{ alignItems: 'flex-start' }} padding="1rem 2rem 0 2rem">
+      <StyledRowBetween style={{ alignItems: 'flex-start' }}>
         <HeaderElement>
           <Title href="/">
             <UniIcon>
               <img style={{ height: 45 }} src={isDark ? LogoDark : Logo} alt="Subswap" />
             </UniIcon>
-            <img style={{ height: 30, marginLeft: 19 }} src={LogoText} alt="Subswap" />
+            <StyledImgIcon style={{ height: 30, marginLeft: 19 }} src={LogoText} alt="Subswap" />
           </Title>
         </HeaderElement>
         <Nav />
@@ -162,7 +175,7 @@ export default function Header() {
             <Menu />
           </HeaderElementWrap>
         </HeaderControls>
-      </RowBetween>
+      </StyledRowBetween>
     </HeaderFrame>
   )
 }
