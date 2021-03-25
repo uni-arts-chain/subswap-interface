@@ -4,7 +4,7 @@ import { ChainId, JSBI, Percent, Token, WETH } from '@subswap/sdk'
 import { injected, walletconnect, walletlink } from '../connectors'
 
 
-export const ROUTER_ADDRESS = '0xd20DC26391834509E97d362D4D0D879B2B217519'
+export const ROUTER_ADDRESS = '0xaa35C00aaCb642421E59DCE19F7d6CDF79B7ABBB'
 
 
 // a list of tokens by chain
@@ -65,7 +65,7 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_USDT, BUSD, B_DAI, MILK],
   [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI],
   [ChainId.HECO_MAINNET]: [],
-  [ChainId.DVM_TESTNET]: []
+  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -73,7 +73,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
   [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_USDT, BUSD, B_DAI, MILK],
-  [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI]
+  [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI],
+  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
