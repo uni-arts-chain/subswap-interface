@@ -19,6 +19,7 @@ import { ButtonError } from '../Button'
 import { useSettingsMenuOpen, useToggleSettingsMenu } from '../../state/application/hooks'
 import { Text } from 'rebass'
 import Modal from '../Modal'
+import Icon from '../../assets/images/settings@2x.png'
 
 const StyledMenuIcon = styled(Settings)`
   height: 20px;
@@ -49,7 +50,8 @@ const StyledMenuButton = styled.button`
   background-color: transparent;
   margin: 0;
   padding: 0;
-  height: 35px;
+  height: 38px;
+  width: 38px;
   background-color: ${({ theme }) => theme.bg3};
 
   padding: 0.15rem 0.5rem;
@@ -197,7 +199,8 @@ export default function SettingsTab() {
         </ModalContentWrapper>
       </Modal>
       <StyledMenuButton onClick={toggle} id="open-settings-dialog-button">
-        <StyledMenuIcon />
+        {/* <StyledMenuIcon /> */}
+        <img src={Icon} style={{ width: 20, height: 20 }} alt="Setting" />
         {expertMode && (
           <EmojiWrapper>
             <span role="img" aria-label="wizard-icon">

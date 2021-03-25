@@ -4,8 +4,6 @@
   "homepage": ".",
   "private": true,
   "devDependencies": {
-    "@subswap/core": "file:.yalc/@subswap/core",
-    "@subswap/sdk": "file:.yalc/@subswap/sdk",
     "@ethersproject/experimental": "^5.0.1",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
@@ -98,5 +96,10 @@
       "last 1 safari version"
     ]
   },
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@subswap/core": "file:.yalc/@subswap/core",
+    "@subswap/sdk": "file:.yalc/@subswap/sdk",
+    "@uniswap/sdk": "^3.0.3"
+  }
 }
