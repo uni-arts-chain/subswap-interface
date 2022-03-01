@@ -29,6 +29,7 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.BSC_MAINNET]: {},
   [ChainId.HECO_MAINNET]: {},
   [ChainId.DVM_TESTNET]: {},
+  [ChainId.DVM_CRAB]: {},
   [ChainId.KOVAN]: {},
   [ChainId.RINKEBY]: {},
   [ChainId.ROPSTEN]: {},

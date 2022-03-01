@@ -35,7 +35,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'RING' : ''
+          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? (ETHER?.symbol || '') : ''
         })
       )
     },
@@ -191,13 +191,14 @@ export function useDerivedSwapInfo(): {
 }
 
 function parseCurrencyFromURLParameter(urlParam: any): string {
+  const nativeSymbol = ETHER?.symbol || ''
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === 'RING') return 'RING'
-    if (valid === false) return 'RING'
+    if (urlParam.toUpperCase() === nativeSymbol) return nativeSymbol
+    if (valid === false) return nativeSymbol
   }
-  return 'RING' ?? ''
+  return nativeSymbol ?? ''
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {

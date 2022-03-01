@@ -4,6 +4,15 @@ import styled from 'styled-components'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
+      <StyledAbsoluteLink href="/">
+        Trade
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="https://wormhole.darwinia.network" target="_blank">
+        Bridge
+      </StyledAbsoluteLink>
+      <StyledAbsoluteLink href="#">
+        Charts
+      </StyledAbsoluteLink>
     </StyledNav>
   )
 }

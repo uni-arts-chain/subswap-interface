@@ -67,7 +67,7 @@ export function V1LiquidityInfo({
         <div style={{ marginLeft: '.75rem' }}>
           <TYPE.mediumHeader>
             {<FormattedPoolCurrencyAmount currencyAmount={liquidityTokenAmount} />}{' '}
-            {token.equals(WETH[chainId]) ? 'WRING' : token.symbol}/RING
+            {token.equals(WETH[chainId]) ? 'WRING' : token.symbol}/CRAB
           </TYPE.mediumHeader>
         </div>
       </AutoRow>

@@ -4,7 +4,8 @@ import { ChainId, JSBI, Percent, Token, WETH } from '@subswap/sdk'
 import { injected, walletconnect, walletlink } from '../connectors'
 
 
-export const ROUTER_ADDRESS = '0xaa35C00aaCb642421E59DCE19F7d6CDF79B7ABBB'
+// export const ROUTER_ADDRESS = '0xaa35C00aaCb642421E59DCE19F7d6CDF79B7ABBB'
+export const ROUTER_ADDRESS = '0xD6FC3E187Da47e33774B25C3d0aDC619032bf686'
 
 
 // a list of tokens by chain
@@ -37,7 +38,8 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.BSC_MAINNET]: [WETH[ChainId.BSC_MAINNET]],
   [ChainId.BSC_TESTNET]: [WETH[ChainId.BSC_TESTNET]],
   [ChainId.HECO_MAINNET]: [WETH[ChainId.HECO_MAINNET]],
-  [ChainId.DVM_TESTNET]: [WETH[ChainId.DVM_TESTNET]]
+  [ChainId.DVM_TESTNET]: [WETH[ChainId.DVM_TESTNET]],
+  [ChainId.DVM_CRAB]: [WETH[ChainId.DVM_CRAB]]
 }
 
 // used to construct intermediary pairs for trading
@@ -45,7 +47,8 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR],
   [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_DAI, BUSD, B_USDT],
-  [ChainId.DVM_TESTNET]: []
+  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]],
+  [ChainId.DVM_CRAB]: [...WETH_ONLY[ChainId.DVM_CRAB]]
 }
 
 /**
@@ -65,7 +68,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_USDT, BUSD, B_DAI, MILK],
   [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI],
   [ChainId.HECO_MAINNET]: [],
-  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]]
+  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]],
+  [ChainId.DVM_CRAB]: [...WETH_ONLY[ChainId.DVM_CRAB]]
 }
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -74,7 +78,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT],
   [ChainId.BSC_MAINNET]: [...WETH_ONLY[ChainId.BSC_MAINNET], B_USDT, BUSD, B_DAI, MILK],
   [ChainId.BSC_TESTNET]: [...WETH_ONLY[ChainId.BSC_TESTNET], T_USDT, T_BUSD, T_DAI],
-  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]]
+  [ChainId.DVM_TESTNET]: [...WETH_ONLY[ChainId.DVM_TESTNET]],
+  [ChainId.DVM_CRAB]: [...WETH_ONLY[ChainId.DVM_CRAB]]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {

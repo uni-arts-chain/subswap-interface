@@ -1,4 +1,4 @@
-import { ChainId } from '@subswap/sdk'
+import { ChainId, ETHER } from '@subswap/sdk'
 import React from 'react'
 import { isMobile } from 'react-device-detect'
 import { Text } from 'rebass'
@@ -135,7 +135,8 @@ const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
   [ChainId.BSC_MAINNET]: null,
   [ChainId.BSC_TESTNET]: 'Testnet',
   [ChainId.HECO_MAINNET]: null,
-  [ChainId.DVM_TESTNET]: 'Pangolin'
+  [ChainId.DVM_TESTNET]: 'Pangolin',
+  [ChainId.DVM_CRAB]: 'Crab'
 }
 
 export default function Header() {
@@ -164,7 +165,7 @@ export default function Header() {
             <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
               {account && userEthBalance ? (
                 <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                  {userEthBalance?.toSignificant(4)} PRING
+                  {userEthBalance?.toSignificant(6)} { ETHER?.symbol }
                 </BalanceText>
               ) : null}
               <Web3Status />

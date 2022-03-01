@@ -2,14 +2,14 @@ import { Currency, ETHER, Token } from '@subswap/sdk'
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import EthereumLogo from '../../assets/images/native.png'
+import EthereumLogo from '../../assets/images/cring.png'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import uriToHttp from '../../utils/uriToHttp'
 import DefaultTokenList from '../../constants/tokens/tokens.json'
 
 
 const getTokenLogoURL = (currency: Currency) => {
-  const token = DefaultTokenList.tokens.find(token => token.symbol == currency.symbol);
+  const token = DefaultTokenList.tokens.find(token => token.symbol === currency.symbol);
   return token ? token.logoURI : null
 }
   
@@ -58,8 +58,6 @@ export default function CurrencyLogo({
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} {...rest} />
   }
-    
-  console.log(currency)
 
   if (currency instanceof Token) {
     let uri: string | undefined
